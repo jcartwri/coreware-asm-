@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="corewar"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/kitos/Документы/21/corewar/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/kitos/Документы/21/corewar/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="corewar">
+				<Option output="/home/kitos/Документы/21/corewar/cmake-build-debug/corewar" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kitos/Документы/21/corewar/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 corewar"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="corewar/fast">
+				<Option output="/home/kitos/Документы/21/corewar/cmake-build-debug/corewar" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kitos/Документы/21/corewar/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 corewar/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/kitos/Документы/21/corewar/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/kitos/Документы/21/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/kitos/Документы/21/corewar/asm.h">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/byte_counting.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/check_true_arg.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/find_name_comment.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/friend_find_instruction.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/ft_create_operation.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/helper_work_oper.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/instrument.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/instrument_check_arg.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/flag_modifiers.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/float_functions.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/ft_fldtoa_funcs.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/ft_ftoa.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/ft_itoa_im.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/ft_itoa_ll.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/ft_itoa_st.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/ft_itoa_uh.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/ft_itoa_uhh.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/ft_itoa_ui.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/ft_itoa_uim.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/ft_itoa_ull.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/ft_ldtoa.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/ft_ntoa.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/ft_printf.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/ft_printf.h">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/helper_functions.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_atoi.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_bzero.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_colorize_str.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_isalnum.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_isalpha.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_isascii.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_isdigit.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_isprint.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_itoa.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_lstadd.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_lstchange.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_lstdel.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_lstdelone.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_lstiter.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_lstjoin.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_lstmap.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_lstnew.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_lstprint.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_make_lst.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_memalloc.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_memccpy.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_memchr.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_memcmp.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_memcpy.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_memdel.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_memmove.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_memset.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_putchar.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_putchar_fd.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_putendl.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_putendl_fd.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_putnbr.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_putnbr_fd.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_putstr.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_putstr_fd.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strcat.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strchr.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strclr.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strcmp.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strcpy.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strdel.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strdup.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strequ.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_striter.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_striteri.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strjoin.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strlcat.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strlen.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strmap.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strmapi.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strncat.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strncmp.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strncpy.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strnequ.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strnew.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strnstr.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strrchr.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strsplit.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strstr.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strsub.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strsubi.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strtrim.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_strtrim_c.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_tolower.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_toupper.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/ft_word_count_c.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/get_next_line.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/get_next_line.h">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/libft/libft.h">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/ntoa_ox_modificators.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/print_char.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/print_float.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/print_floatfuncs.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/print_functions.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/print_int.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/print_int2.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/print_ld.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/print_oxp.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/print_string.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/print_string_colour.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/print_u.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/searchers.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/utilities.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/utilities2.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/validators.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/lib/printf/zero_cases_xop.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/list_instruction.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/main.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/one_combination_arg.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/op.h">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/read_asembler.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/two_combination_arg.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/work_with_metky.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/work_with_operations.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/write_bytes_file.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/writes_byte_file_two.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/kitos/Документы/21/corewar/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
