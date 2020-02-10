@@ -1,3 +1,0 @@
-/home/kitos/Документы/21/corewar/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/kitos/Документы/21/corewar/cmake-build-debug/CMakeFiles/corewar.dir
-/home/kitos/Документы/21/corewar/cmake-build-debug/CMakeFiles/edit_cache.dir
