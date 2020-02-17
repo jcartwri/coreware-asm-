@@ -1,4 +1,4 @@
-/private/var/folders/zz/zyxvpxvq6csfxvn_n0000y7m0007jx/T/AppTranslocation/669309AB-9363-4F6F-A181-956DF1D6BF34/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/jcartwri/21/corewar/coreware-asm-
+/private/var/folders/zz/zyxvpxvq6csfxvn_n0000y7m0007jx/T/AppTranslocation/1A2D2D52-1CAD-4990-953F-FB7B18B62AD9/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/jcartwri/21/corewar/coreware-asm-
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /Users/jcartwri/21/corewar/coreware-asm-/cmake-build-debug

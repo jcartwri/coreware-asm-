@@ -1,29 +1,32 @@
 #include <stdio.h>
-#include "lib/printf/libft/libft.h"
 #include "asm.h"
 
 static int ft_read_with_file(int fd, int flag)
 {
-	char *line;
+	char	*line;
+	int		a;
 
 	line = NULL;
+	a = 0;
 	while (get_next_line(fd, &line) != 0)
 	{
-		if (ft_sting_empty_comment(line) == 1)
+		if (flag == 1 && a == 2)
+			flag = 2;
+		if (ft_sting_empty_comment(line, flag) == 1)
 			ft_strdel(&line);
 		else if (flag == 0)
 		{
-			if (ft_del_return(&line, &ft_string_command_name, &flag) == -1)
+			if (ft_del_return(&line, &ft_string_command_name, &flag, &a) == -1)
 				return (-1);
 		}
-		else if (flag == 1)
+		else if (flag == 1 || flag == 10)
 		{
-			if (ft_del_return(&line, &ft_string_command_comment, &flag) == -1)
+			if (ft_del_return(&line, &ft_string_command_comment, &flag, &a) == -1)
 				return (-1);
 		}
 		else
 		{
-			if (ft_del_return(&line, &ft_read_asembler, &flag) == -1)
+			if (ft_del_return(&line, &ft_read_asembler, &flag, &a) == -1)
 				return (-1);
 		}
 	}

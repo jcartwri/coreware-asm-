@@ -33,7 +33,7 @@ static	t_operation	*ft_create_operation(int code_oper, int is_code_arg, int inde
 {
 	t_operation	*list;
 
-	list = (t_operation *)malloc(sizeof(t_operation));
+	list = (t_operation *)ft_memalloc(sizeof(t_operation));
 	ft_helper_oper(list);
 	if (flag == 1)
 	{

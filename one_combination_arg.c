@@ -65,7 +65,8 @@ int ft_record_value_reg(t_operation *oper, char **mas_arg, int j, int i)
 	t_list_instruction	*list;
 
 	a = ft_atoi(mas_arg[i] + j);
-	if (a < 1 || a > REG_NUMBER)
+//	if (a < 1 || a > REG_NUMBER)
+	if (a < 1)
 		return (-1);
 	if (i == 0)
 		oper->value1 = a;
@@ -131,7 +132,7 @@ int ft_ind(t_list_instruction *list, t_operation *oper, int i, char	**mas_arg)
 	code_type_arg[(num_arg - 1) * 2 + 1] = '1';
 	j = ft_skip_space(mas_arg[i], 0);
 	if ((mas_arg[i][j] >= '0' && mas_arg[i][j] <= '9') || (mas_arg[i][j] == '-' &&
-		mas_arg[i][j + 1] >= '0' && mas_arg[i][j + 1] <= '9'))
+		mas_arg[i][j + 1] >= '0' && mas_arg[i][j + 1] <= '9') || (mas_arg[i][j] == LABEL_CHAR))
 		return (-1);
 	oper->size_arg[i] += 2;
 	return (ft_record_value(oper, mas_arg, j, i));
