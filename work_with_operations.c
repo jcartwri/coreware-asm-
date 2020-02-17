@@ -75,7 +75,7 @@ static	int	ft_check_true_writing_oper(char *str, int i, int *flag, int new_list)
 	int 				j;
 
 	j = i;
-	while (str[j] != '\0' && str[j] != ' ' && str[j] != '\t')
+	while (str[j] != '\0' && str[j] != ' ' && str[j] != '\t' && str[j] != '%')
 		j++;
 	if (str[j] == '\0')
 		return (-1);
@@ -118,13 +118,16 @@ int ft_check_on_instruction(char *line, int i, int *flag, int new_list)
 	if (j > 3 || ft_work_with_arg(mas) == -1)
 	{
 		j = 0;
-		while (mas && mas[j] != NULL)
-			ft_strdel(&mas[j++]);
+		while (mas[j] != NULL)
+			free(mas[j++]);
+		free(mas[j]);
 		free(mas);
 		return (-1);
 	}
-	while (mas && mas[j] != NULL)
-		ft_strdel(&mas[j++]);
+	j = 0;
+	while (mas[j] != NULL)
+		free(mas[j++]);
+	free(mas[j]);
 	free(mas);
 	return (1);
 }

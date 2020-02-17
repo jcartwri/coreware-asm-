@@ -13,9 +13,9 @@
 #ifndef ASM_H
 #define ASM_H
 
-#include "./lib/printf/ft_printf.h"
-#include "./lib/printf/libft/libft.h"
-#include "./lib/printf/libft/get_next_line.h"
+#include "./lib/libft/ft_printf/incs/ft_printf.h"
+#include "./lib/libft/libft.h"
+//#include "./lib/printf/libft/get_next_line.h"
 #include "op.h"
 
 #include <fcntl.h>
@@ -69,7 +69,7 @@ int								ft_read_asembler(char *line, int *flag);
 int								ft_skip_space(char *str, int index);
 int								ft_mystrcmp(char *str1, char *str2);
 char							*ft_strcopy_name_comment(char *str, int i, int a);
-int								ft_check_com_value(char *str, int i);
+int								ft_check_com_value(char *str, int i, int *flag);
 t_operation						*ft_add_new_operation(int code_oper, int is_code_arg, int index, int flag);
 t_list_instruction				*ft_create_list_operation(char *name, int par[3], int size, int carry);
 void							ft_list_instruction_one(void);

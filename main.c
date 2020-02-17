@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "lib/printf/libft/libft.h"
 #include "asm.h"
 
 static int ft_read_with_file(int fd, int flag)
@@ -16,7 +15,7 @@ static int ft_read_with_file(int fd, int flag)
 			if (ft_del_return(&line, &ft_string_command_name, &flag) == -1)
 				return (-1);
 		}
-		else if (flag == 1)
+		else if (flag == 1 || flag == 10)
 		{
 			if (ft_del_return(&line, &ft_string_command_comment, &flag) == -1)
 				return (-1);
