@@ -13,20 +13,39 @@
 //		ft_strdel(&mas[i++]);
 //}
 
-int ft_del_return(char **line, int(foo)(char *str, int *flag), int	*flag)
+int ft_del_return(char **line, int(foo)(char *str, int *flag), int	*flag, int *a)
 {
     if (foo(*line, flag) == -1)
     {
-        ft_strdel(line);
+		if (*flag == 0 && *a == 0)
+		{
+			*flag = 1;
+			if (ft_del_return(line, &ft_string_command_comment, flag, a) == -1)
+				return (-1);
+    		*a = 1;
+    		if (*flag != 10)
+			{
+    			*a = 2;
+    			*flag = 0;
+			}
+			ft_strdel(line);
+			return (1);
+		}
+		ft_strdel(line);
         return(-1);
     }
+    if (*a == 1 && *flag == 2)
+	{
+    	*a = 2;
+    	*flag = 0;
+	}
     ft_strdel(line);
     return (1);
 }
 
 int ft_helper_check_metky(char *line, int *flag, int i, t_operation *list)
 {
-	if (line[i] == '\0' || line[i] == COMMENT_CHAR)
+	if (line[i] == '\0' || line[i] == COMMENT_CHAR || line[i] == ALT_COMMENT_CHAR)
 	{
 		*flag = -2;
 		return (1);

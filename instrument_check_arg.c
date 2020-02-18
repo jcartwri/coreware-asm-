@@ -31,24 +31,32 @@ char	**ft_add_one_elem_mas(char **mas, char *value)
 int ft_col_number(long long a, char **mas_arg, int i, int j)
 {
 	int k;
+	int flag;
 
 	k = 0;
+	flag = 0;
 	if (mas_arg[i][j] == '-' && mas_arg[i][j + 1] == '0')
 	{
-		while (mas_arg[i][++j] == '0')
-			k++;
+		flag = 1;
+		j++;
+//		k++;
+//		while (mas_arg[i][++j] == '0')
+//			k++;
 	}
-	else if (mas_arg[i][j] == '0')
+	if (mas_arg[i][j] == '0')
 	{
 		while (mas_arg[i][j++] == '0')
 			k++;
+//		if (mas_arg[i][j] == '\0')
+//			return (k);
 	}
 	if (a == 0)
-        return (1);
+        return (k + flag);
 	if (a < 0)
     {
+		flag = 1;
 	    a = a * (-1);
-	    k = 1;
+	    k += flag;
     }
 	while (a != 0)
 	{

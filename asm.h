@@ -13,9 +13,9 @@
 #ifndef ASM_H
 #define ASM_H
 
-#include "./lib/printf/ft_printf.h"
-#include "./lib/printf/libft/libft.h"
-#include "./lib/printf/libft/get_next_line.h"
+#include "./lib/libft/ft_printf/incs/ft_printf.h"
+#include "./lib/libft/libft.h"
+//#include "./lib/printf/libft/get_next_line.h"
 #include "op.h"
 
 #include <fcntl.h>
@@ -61,7 +61,7 @@ int 							num_arg;
 char 							code_type_arg[9];
 
 int								main(int argc, char **argv);
-int                             ft_del_return(char **line, int(foo)(char *str, int *flag), int	*flag);
+int                             ft_del_return(char **line, int(foo)(char *str, int *flag), int	*flag, int *a);
 void							ft_counting_size_instruction(void);
 char							*ft_get_str_label(t_operation *oper, int i);
 void							ft_insert_value(t_operation *oper, int i, int value);
@@ -69,13 +69,13 @@ int								ft_read_asembler(char *line, int *flag);
 int								ft_skip_space(char *str, int index);
 int								ft_mystrcmp(char *str1, char *str2);
 char							*ft_strcopy_name_comment(char *str, int i, int a);
-int								ft_check_com_value(char *str, int i);
+int								ft_check_com_value(char *str, int i, int *flag, int a);
 t_operation						*ft_add_new_operation(int code_oper, int is_code_arg, int index, int flag);
 t_list_instruction				*ft_create_list_operation(char *name, int par[3], int size, int carry);
 void							ft_list_instruction_one(void);
 int								ft_string_command_name(char *str, int *flag);
 int								ft_string_command_comment(char *str, int *flag);
-int								ft_sting_empty_comment(char *str);
+int								ft_sting_empty_comment(char *str, int flag);
 void							ft_strdel_split_mas(char **mas);
 int								ft_check_chars_label(char c);
 int								ft_check_on_metky(char *line, int index, int *flag);

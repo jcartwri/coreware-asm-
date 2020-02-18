@@ -18,6 +18,8 @@ void	ft_counting_size_instruction(void)
 		while (++i < 3)
 			sum += oper->size_arg[i];
 		sum += oper->is_code_arg;
+		if (sum == 1)
+			sum = 0;
 		oper->size_instruction += sum;
 		oper = oper->next;
 	}

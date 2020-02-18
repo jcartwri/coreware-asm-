@@ -13,11 +13,13 @@ int ft_reg_ind(t_list_instruction *list, t_operation *oper, int i, char	**mas_ar
 	j = ft_skip_space(mas_arg[i], 0);
 	num_arg++;
 	if ((mas_arg[i][j] >= '0' && mas_arg[i][j] <= '9') || (mas_arg[i][j] == '-' &&
-		mas_arg[i][j + 1] >= '0' && mas_arg[i][j + 1] <= '9'))
+		mas_arg[i][j + 1] >= '0' && mas_arg[i][j + 1] <= '9') || (mas_arg[i][j] == LABEL_CHAR))
 	{
 		code_type_arg[(num_arg - 1) * 2] = '1';
 		code_type_arg[(num_arg - 1) * 2 + 1] = '1';
 		oper->size_arg[i] += 2;
+		if (mas_arg[i][j] == LABEL_CHAR)
+			return (ft_add_mas_label_arg(oper, i, mas_arg, j + 1));
 		return (ft_record_value(oper, mas_arg, j, i));
 	}
 	else if (mas_arg[i][j] == 'r')
@@ -40,11 +42,13 @@ int ft_dir_ind(t_list_instruction *list, t_operation *oper, int i, char	**mas_ar
 	j = ft_skip_space(mas_arg[i], 0);
 	num_arg++;
 	if ((mas_arg[i][j] >= '0' && mas_arg[i][j] <= '9') || (mas_arg[i][j] == '-' &&
-		mas_arg[i][j + 1] >= '0' && mas_arg[i][j + 1] <= '9'))
+		mas_arg[i][j + 1] >= '0' && mas_arg[i][j + 1] <= '9') || (mas_arg[i][j] == LABEL_CHAR))
 	{
 		code_type_arg[(num_arg - 1) * 2] = '1';
 		code_type_arg[(num_arg - 1) * 2 + 1] = '1';
 		oper->size_arg[i] += 2;
+		if (mas_arg[i][j] == LABEL_CHAR)
+			return (ft_add_mas_label_arg(oper, i, mas_arg, j + 1));
 		return (ft_record_value(oper, mas_arg, j, i));
 	}
 	else
@@ -65,6 +69,8 @@ static int ft_helper_ind(t_operation *oper, int i, int j, char	**mas_arg)
 	code_type_arg[(num_arg - 1) * 2] = '1';
 	code_type_arg[(num_arg - 1) * 2 + 1] = '1';
 	oper->size_arg[i] += 2;
+	if (mas_arg[i][j] == LABEL_CHAR)
+		return (ft_add_mas_label_arg(oper, i, mas_arg, j + 1));
 	return (ft_record_value(oper, mas_arg, j, i));
 }
 
@@ -84,7 +90,7 @@ int ft_reg_dir_ind(t_list_instruction *list, t_operation *oper, int i, char	**ma
 //		return (ft_record_value(oper, mas_arg, j, i));
 //	}
 	if ((mas_arg[i][j] >= '0' && mas_arg[i][j] <= '9') || (mas_arg[i][j] == '-' &&
-		mas_arg[i][j + 1] >= '0' && mas_arg[i][j + 1] <= '9'))
+		mas_arg[i][j + 1] >= '0' && mas_arg[i][j + 1] <= '9') || (mas_arg[i][j] == LABEL_CHAR))
 		return(ft_helper_ind(oper, i, j, mas_arg));
 	else if (mas_arg[i][j] == DIRECT_CHAR)
 	{

@@ -40,11 +40,14 @@ static int	ft_record_champion_comment(int fd, char *str)
 	int len;
 
 	l = ft_strlen(str);
-//	if (l > COMMENT_LENGTH)
-//		return (-1);
+	if (l > COMMENT_LENGTH)
+	{
+		ft_putstr("Champion comment too long (Max length 2048)\n");
+		return (-1);
+	}
 	len = COMMENT_LENGTH - l;
 	write(fd, str, l);
-	while (len-- != 0)
+	while (len-- > 0)
 		write(fd, "\0", 1);
 	return (1);
 }

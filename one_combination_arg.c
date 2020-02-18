@@ -35,11 +35,23 @@ long long	ft_llatoi(const char *str)
 	return (res * sign);
 }
 
+static int ft_check_exist_arg(char **mas_arg, int j, int i)
+{
+	if (mas_arg[i][j] == ' ' || mas_arg[i][j] == '\t' || mas_arg[i][j] == '\0')
+	{
+		ft_putstr("Lexical error\n");
+		return (-1);
+	}
+	return 1;
+}
+
 int ft_record_value(t_operation *oper, char **mas_arg, int j, int i)
 {
 	long long			a;
 	t_list_instruction	*list;
 
+	if (ft_check_exist_arg(mas_arg, j, i) == -1)
+		return (-1);
 	a = ft_llatoi(mas_arg[i] + j);
 	if (i == 0)
 		oper->value1 = a;
@@ -65,7 +77,8 @@ int ft_record_value_reg(t_operation *oper, char **mas_arg, int j, int i)
 	t_list_instruction	*list;
 
 	a = ft_atoi(mas_arg[i] + j);
-	if (a < 1 || a > REG_NUMBER)
+//	if (a < 1 || a > REG_NUMBER)
+	if (a < 0 || a > REG_NUMBER)
 		return (-1);
 	if (i == 0)
 		oper->value1 = a;
@@ -131,7 +144,7 @@ int ft_ind(t_list_instruction *list, t_operation *oper, int i, char	**mas_arg)
 	code_type_arg[(num_arg - 1) * 2 + 1] = '1';
 	j = ft_skip_space(mas_arg[i], 0);
 	if ((mas_arg[i][j] >= '0' && mas_arg[i][j] <= '9') || (mas_arg[i][j] == '-' &&
-		mas_arg[i][j + 1] >= '0' && mas_arg[i][j + 1] <= '9'))
+		mas_arg[i][j + 1] >= '0' && mas_arg[i][j + 1] <= '9') || (mas_arg[i][j] == LABEL_CHAR))
 		return (-1);
 	oper->size_arg[i] += 2;
 	return (ft_record_value(oper, mas_arg, j, i));

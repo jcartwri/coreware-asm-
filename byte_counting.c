@@ -96,6 +96,53 @@ static int	ft_check_oper_on_label(t_operation *oper)
 	return (i);
 }
 
+void ft_del_one_oper(t_operation *oper)
+{
+	int i;
+
+	oper->next = NULL;
+	i = 0;
+	if (oper->label_names != NULL)
+	{
+		while (oper->label_names[i])
+			ft_strdel(&oper->label_names[i++]);
+		free(oper->label_names);
+	}
+	free(oper->mas_label_arg1);
+	free(oper->mas_label_arg2);
+	free(oper->mas_label_arg3);
+	free(oper);
+}
+
+void ft_delit_none_oper(void)
+{
+	t_operation *oper;
+	t_operation *friend;
+	int			a;
+
+	a = 1;
+	while (a == 1)
+	{
+		a = 0;
+		oper = operation;
+		friend = NULL;
+		while (oper && oper->next != NULL)
+		{
+			friend = oper;
+			oper = oper->next;
+		}
+		if (oper && oper->code_operation == 0 && oper->col_arg == 0)
+		{
+			a = 1;
+			if (friend == NULL)
+				operation = NULL;
+			else
+				friend->next = NULL;
+			ft_del_one_oper(oper);
+		}
+	}
+}
+
 void	ft_byte_counting(void)
 {
 	t_operation	*oper;
@@ -113,5 +160,6 @@ void	ft_byte_counting(void)
 		ft_counting_size_label(oper, a);
 		oper = oper->next;
 	}
+	ft_delit_none_oper();
 }
 

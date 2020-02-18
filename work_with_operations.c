@@ -75,7 +75,7 @@ static	int	ft_check_true_writing_oper(char *str, int i, int *flag, int new_list)
 	int 				j;
 
 	j = i;
-	while (str[j] != '\0' && str[j] != ' ' && str[j] != '\t')
+	while (str[j] != '\0' && str[j] != ' ' && str[j] != '\t' && str[j] != '%' && str[j] != '-')
 		j++;
 	if (str[j] == '\0')
 		return (-1);
@@ -91,11 +91,19 @@ static	int	ft_check_true_writing_oper(char *str, int i, int *flag, int new_list)
 char	*ft_find_normal_str(char *str)
 {
 	int		i;
+	int		col;
 	char	*new;
 
 	i = 0;
+	col = 0;
 	while (str[i] != '\0' && str[i] != COMMENT_CHAR && str[i] != ALT_COMMENT_CHAR)
+	{
+		if (str[i] == SEPARATOR_CHAR)
+			col++;
 		i++;
+	}
+	if (col > 2)
+		return (NULL);
 	new = ft_strsub(str, 0, i);
 	return (new);
 }
@@ -109,7 +117,8 @@ int ft_check_on_instruction(char *line, int i, int *flag, int new_list)
 	i = ft_skip_space(line, i);
 	if ((i = ft_check_true_writing_oper(line, i, flag, new_list)) == -1)
 		return (-1);
-	str = ft_find_normal_str(line + i);
+	if ((str = ft_find_normal_str(line + i)) == NULL)
+		return (-1);
 	mas = ft_strsplit(str, SEPARATOR_CHAR);
 	ft_strdel(&str);
 	j = 0;
@@ -119,12 +128,15 @@ int ft_check_on_instruction(char *line, int i, int *flag, int new_list)
 	{
 		j = 0;
 		while (mas && mas[j] != NULL)
-			ft_strdel(&mas[j++]);
+			free(mas[j++]);
+		free(mas[j]);
 		free(mas);
 		return (-1);
 	}
+	j = 0;
 	while (mas && mas[j] != NULL)
-		ft_strdel(&mas[j++]);
+		free(mas[j++]);
+	free(mas[j]);
 	free(mas);
 	return (1);
 }

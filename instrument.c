@@ -50,14 +50,20 @@ char	*ft_strcopy_name_comment(char *str, int i, int a)
 	return (value);
 }
 
-int ft_check_com_value(char *str, int i)
+int ft_check_com_value(char *str, int i, int *flag, int a)
 {
 	if (str[i++] != '"')
 		return (-1);
 	while (str[i] != '\0' && str[i] != '"')
 		i++;
-	if (str[i++] == '\0')
-		return (-1);
+	if (str[i++] == '\0' && (*flag == 2 || *flag == 1))
+	{
+		if (a == 0)
+			*flag = 12;
+		else
+			*flag = 10;
+		return (2);
+	}
 	while (str[i] != '\0' && str[i] != COMMENT_CHAR && str[i] == ' ' && str[i] == '\t')
 		i++;
 	if (str[i] == '\0' || str[i] == COMMENT_CHAR)
