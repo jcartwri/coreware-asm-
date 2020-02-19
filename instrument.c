@@ -1,17 +1,25 @@
-//
-// Created by kitos on 08.02.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   instrument.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcartwri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/19 23:07:09 by jcartwri          #+#    #+#             */
+/*   Updated: 2020/02/19 23:07:12 by jcartwri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "asm.h"
 
-int ft_skip_space(char *str, int index)
+int		ft_skip_space(char *str, int index)
 {
 	while (str[index] != '\0' && (str[index] == ' ' || str[index] == '\t'))
 		index++;
 	return (index);
 }
 
-int ft_mystrcmp(char *str1, char *str2)
+int		ft_mystrcmp(char *str1, char *str2)
 {
 	int i;
 
@@ -26,9 +34,9 @@ int ft_mystrcmp(char *str1, char *str2)
 
 char	*ft_strcopy_name_comment(char *str, int i, int a)
 {
-	int 	len;
+	int		len;
 	int		j;
-	char 	*value;
+	char	*value;
 
 	len = 0;
 	j = i;
@@ -39,9 +47,15 @@ char	*ft_strcopy_name_comment(char *str, int i, int a)
 			return (NULL);
 	}
 	if (a == 0 && len > PROG_NAME_LENGTH)
+	{
+		ft_put_error("Champion name too long (Max length 128)\n", 1);
 		return (NULL);
+	}
 	else if (len > COMMENT_LENGTH)
+	{
+		ft_put_error("Champion comment too long (Max length 2048)\n", 1);
 		return (NULL);
+	}
 	value = (char *)malloc(sizeof(char) * (len + 1));
 	value[len] = '\0';
 	j = 0;
@@ -50,15 +64,22 @@ char	*ft_strcopy_name_comment(char *str, int i, int a)
 	return (value);
 }
 
-int ft_check_com_value(char *str, int i)
+int		ft_check_com_value(char *str, int i, int *flag, int a)
 {
 	if (str[i++] != '"')
 		return (-1);
 	while (str[i] != '\0' && str[i] != '"')
 		i++;
-	if (str[i++] == '\0')
-		return (-1);
-	while (str[i] != '\0' && str[i] != COMMENT_CHAR && str[i] == ' ' && str[i] == '\t')
+	if (str[i++] == '\0' && (*flag == 2 || *flag == 1))
+	{
+		if (a == 0)
+			*flag = 12;
+		else
+			*flag = 10;
+		return (2);
+	}
+	while (str[i] != '\0' && str[i] != COMMENT_CHAR &&
+	str[i] == ' ' && str[i] == '\t')
 		i++;
 	if (str[i] == '\0' || str[i] == COMMENT_CHAR)
 		return (1);

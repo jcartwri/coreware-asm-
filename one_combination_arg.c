@@ -1,6 +1,14 @@
-//
-// Created by kitos on 20.01.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   one_combination_arg.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcartwri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/19 23:16:09 by jcartwri          #+#    #+#             */
+/*   Updated: 2020/02/19 23:16:11 by jcartwri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "asm.h"
 
@@ -29,17 +37,27 @@ long long	ft_llatoi(const char *str)
 		++i;
 	}
 	if (res > 9223372036854775807)
-	{
 		return (sign < 0) ? 0 : -1;
-	}
 	return (res * sign);
 }
 
-int ft_record_value(t_operation *oper, char **mas_arg, int j, int i)
+static	int	ft_check_exist_arg(char **mas_arg, int j, int i)
+{
+	if (mas_arg[i][j] == ' ' || mas_arg[i][j] == '\t' || mas_arg[i][j] == '\0')
+	{
+		ft_put_error("Lexical error\n", 0);
+		return (-1);
+	}
+	return (1);
+}
+
+int			ft_record_value(t_operation *oper, char **mas_arg, int j, int i)
 {
 	long long			a;
 	t_list_instruction	*list;
 
+	if (ft_check_exist_arg(mas_arg, j, i) == -1)
+		return (-1);
 	a = ft_llatoi(mas_arg[i] + j);
 	if (i == 0)
 		oper->value1 = a;
@@ -49,7 +67,7 @@ int ft_record_value(t_operation *oper, char **mas_arg, int j, int i)
 		oper->value3 = a;
 	j += ft_col_number(a, mas_arg, i, j);
 	j = ft_skip_space(mas_arg[i], j);
-	list = list_instruction;
+	list = g_list_instruction;
 	while (list != NULL && list->index != oper->index)
 		list = list->next;
 	if (ft_check_cooment(list, mas_arg, i, j) == 1)
@@ -59,13 +77,13 @@ int ft_record_value(t_operation *oper, char **mas_arg, int j, int i)
 	return (-1);
 }
 
-int ft_record_value_reg(t_operation *oper, char **mas_arg, int j, int i)
+int			ft_record_value_reg(t_operation *oper, char **mas_arg, int j, int i)
 {
 	int					a;
 	t_list_instruction	*list;
 
 	a = ft_atoi(mas_arg[i] + j);
-	if (a < 1 || a > REG_NUMBER)
+	if (a < 0 || a > REG_NUMBER)
 		return (-1);
 	if (i == 0)
 		oper->value1 = a;
@@ -75,7 +93,7 @@ int ft_record_value_reg(t_operation *oper, char **mas_arg, int j, int i)
 		oper->value3 = a;
 	j = j + ft_col_number(a, mas_arg, i, j);
 	j = ft_skip_space(mas_arg[i], j);
-	list = list_instruction;
+	list = g_list_instruction;
 	while (list != NULL && list->index != oper->index)
 		list = list->next;
 	if (ft_check_cooment(list, mas_arg, i, j) == 1)
@@ -85,16 +103,16 @@ int ft_record_value_reg(t_operation *oper, char **mas_arg, int j, int i)
 	return (-1);
 }
 
-int ft_reg(t_list_instruction *list, t_operation *oper, int i, char	**mas_arg)
+int			ft_reg(t_list_instruction *list, t_operation *oper,
+		int i, char **mas_arg)
 {
 	int	j;
 
-//    j = ft_skip_space(mas_arg[i], j);
 	if (list->params[i] != 1)
 		return (0);
-	num_arg++;
-	code_type_arg[(num_arg - 1) * 2] = '0';
-	code_type_arg[(num_arg - 1) * 2 + 1] = '1';
+	g_num_arg++;
+	g_code_type_arg[(g_num_arg - 1) * 2] = '0';
+	g_code_type_arg[(g_num_arg - 1) * 2 + 1] = '1';
 	j = ft_skip_space(mas_arg[i], 0);
 	if (mas_arg[i][j] != 'r')
 		return (-1);
@@ -102,15 +120,16 @@ int ft_reg(t_list_instruction *list, t_operation *oper, int i, char	**mas_arg)
 	return (ft_record_value_reg(oper, mas_arg, j + 1, i));
 }
 
-int ft_dir(t_list_instruction *list, t_operation *oper, int i, char	**mas_arg)
+int			ft_dir(t_list_instruction *list, t_operation *oper,
+		int i, char **mas_arg)
 {
 	int		j;
 
 	if (list->params[i] != 2)
 		return (0);
-	num_arg++;
-	code_type_arg[(num_arg - 1) * 2] = '1';
-	code_type_arg[(num_arg - 1) * 2 + 1] = '0';
+	g_num_arg++;
+	g_code_type_arg[(g_num_arg - 1) * 2] = '1';
+	g_code_type_arg[(g_num_arg - 1) * 2 + 1] = '0';
 	j = ft_skip_space(mas_arg[i], 0);
 	if (mas_arg[i][j] != DIRECT_CHAR)
 		return (-1);
@@ -120,18 +139,20 @@ int ft_dir(t_list_instruction *list, t_operation *oper, int i, char	**mas_arg)
 	return (ft_record_value(oper, mas_arg, j + 1, i));
 }
 
-int ft_ind(t_list_instruction *list, t_operation *oper, int i, char	**mas_arg)
+int			ft_ind(t_list_instruction *list, t_operation *oper,
+		int i, char **mas_arg)
 {
 	int j;
 
 	if (list->params[i] != 3)
 		return (0);
-	num_arg++;
-	code_type_arg[(num_arg - 1) * 2] = '1';
-	code_type_arg[(num_arg - 1) * 2 + 1] = '1';
+	g_num_arg++;
+	g_code_type_arg[(g_num_arg - 1) * 2] = '1';
+	g_code_type_arg[(g_num_arg - 1) * 2 + 1] = '1';
 	j = ft_skip_space(mas_arg[i], 0);
-	if ((mas_arg[i][j] >= '0' && mas_arg[i][j] <= '9') || (mas_arg[i][j] == '-' &&
-		mas_arg[i][j + 1] >= '0' && mas_arg[i][j + 1] <= '9'))
+	if ((mas_arg[i][j] >= '0' && mas_arg[i][j] <= '9') || (mas_arg[i][j] == '-'
+	&& mas_arg[i][j + 1] >= '0' && mas_arg[i][j + 1] <= '9')
+		|| (mas_arg[i][j] == LABEL_CHAR))
 		return (-1);
 	oper->size_arg[i] += 2;
 	return (ft_record_value(oper, mas_arg, j, i));

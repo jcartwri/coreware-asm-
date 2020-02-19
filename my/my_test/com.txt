@@ -1,0 +1,1 @@
+Champion comment too long (Max length 2048)

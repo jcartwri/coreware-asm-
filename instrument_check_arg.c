@@ -1,13 +1,21 @@
-//
-// Created by kitos on 09.02.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   instrument_check_arg.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcartwri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/19 23:10:37 by jcartwri          #+#    #+#             */
+/*   Updated: 2020/02/19 23:10:39 by jcartwri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "asm.h"
 
 char	**ft_add_one_elem_mas(char **mas, char *value)
 {
 	char	**new_mas;
-	int 	i;
+	int		i;
 
 	i = 0;
 	if (mas == NULL)
@@ -28,28 +36,32 @@ char	**ft_add_one_elem_mas(char **mas, char *value)
 	return (new_mas);
 }
 
-int ft_col_number(long long a, char **mas_arg, int i, int j)
+int		ft_col_number(long long a, char **mas_arg,
+		int i, int j)
 {
 	int k;
+	int flag;
 
 	k = 0;
+	flag = 0;
 	if (mas_arg[i][j] == '-' && mas_arg[i][j + 1] == '0')
 	{
-		while (mas_arg[i][++j] == '0')
-			k++;
+		flag = 1;
+		j++;
 	}
-	else if (mas_arg[i][j] == '0')
+	if (mas_arg[i][j] == '0')
 	{
 		while (mas_arg[i][j++] == '0')
 			k++;
 	}
 	if (a == 0)
-        return (1);
+		return (k + flag);
 	if (a < 0)
-    {
-	    a = a * (-1);
-	    k = 1;
-    }
+	{
+		flag = 1;
+		a = a * (-1);
+		k += flag;
+	}
 	while (a != 0)
 	{
 		a = a / 10;
@@ -57,4 +69,3 @@ int ft_col_number(long long a, char **mas_arg, int i, int j)
 	}
 	return (k);
 }
-

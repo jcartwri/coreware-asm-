@@ -1,32 +1,40 @@
-//
-// Created by kitos on 10.02.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   writes_byte_file_two.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcartwri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/19 23:43:18 by jcartwri          #+#    #+#             */
+/*   Updated: 2020/02/19 23:43:21 by jcartwri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "asm.h"
 
-char *ft_get_name_file(char *name)
+char			*ft_get_name_file(char *name)
 {
 	char *str;
 	char *new_file_name;
 
-	str = ft_strsub(name,0, ft_strlen(name) - 2);
+	str = ft_strsub(name, 0, ft_strlen(name) - 2);
 	new_file_name = ft_strjoin(str, ".cor");
 	ft_strdel(&str);
 	return (new_file_name);
 }
 
-static void		ft_reverse(char *str)
+static	void	ft_reverse(char *str)
 {
 	char	*str1;
-	int 	i;
-	int 	l;
+	int		i;
+	int		l;
 
 	l = ft_strlen(str);
 	if (l == 0 || l == 1)
 		return ;
 	str1 = ft_strdup(str);
 	i = 0;
-	while (i < l/2)
+	while (i < l / 2)
 	{
 		str1[i] = str[l - i - 1];
 		i++;
@@ -39,7 +47,7 @@ static void		ft_reverse(char *str)
 	ft_strdel(&str1);
 }
 
-void 	ft_record_magic_file(int fd, size_t size, int l)
+void			ft_record_magic_file(int fd, size_t size, int l)
 {
 	int8_t	i;
 	char	c;
@@ -62,7 +70,7 @@ void 	ft_record_magic_file(int fd, size_t size, int l)
 	ft_strdel(&str);
 }
 
-int	ft_record_champion_name(int fd, char *str)
+int				ft_record_champion_name(int fd, char *str)
 {
 	int l;
 	int len;

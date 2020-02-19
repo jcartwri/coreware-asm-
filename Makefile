@@ -6,7 +6,7 @@
 #    By: jcartwri <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/10 20:09:49 by jcartwri          #+#    #+#              #
-#    Updated: 2020/02/10 20:32:31 by jcartwri         ###   ########.fr        #
+#    Updated: 2020/02/12 22:08:11 by jcartwri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,22 +22,18 @@ OBJ = ./byte_counting.o ./check_true_arg.o ./find_name_comment.o ./friend_find_i
 	  ./writes_byte_file_two.o main.o
 
 FLAGS = -Wall -Wextra -Werror
-LIBRF = ./lib/printf/libftprintf.a
-LIBRL = ./lib/printf/libft/libft.a
+LIBRL = ./lib/libft/libft.a
 
 all: $(NAME)
 
 $(NAME):
-		@make re -C ./lib/printf/
 		@gcc -c $(SRC) ./main.c
-		@gcc $(LIBRF) $(LIBRL) $(FLAGS) $(OBJ) -o $(NAME)
+		@gcc $(LIBRL) $(FLAGS) $(OBJ) -o $(NAME)
 
 clean:
-		make clean -C ./lib/printf
 		@rm -f $(OBJ)
 
 fclean: clean
-		make fclean -C ./lib/printf
 		@rm -f asm
 
 re: fclean all

@@ -1,10 +1,18 @@
-//
-// Created by kitos on 17.01.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_instruction.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcartwri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/19 23:13:04 by jcartwri          #+#    #+#             */
+/*   Updated: 2020/02/19 23:13:07 by jcartwri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "asm.h"
 
-static	int	*freplace(int *mas, int a, int b, int c)
+static	int		*freplace(int *mas, int a, int b, int c)
 {
 	mas[0] = a;
 	mas[1] = b;
@@ -12,18 +20,19 @@ static	int	*freplace(int *mas, int a, int b, int c)
 	return (mas);
 }
 
-static void	ft_add_atribut_list(t_list_instruction	*list, int code_inst, int is_code_arg, int index)
+static	void	ft_add_atribut_list(t_list_instruction *list, int code_inst,
+		int is_code_arg, int index)
 {
 	list->code_operat = code_inst;
 	list->is_code_arg = is_code_arg;
 	list->index = index;
 }
 
-static void ft_list_operation_three(t_list_instruction	*new)
+static	void	ft_list_operation_three(t_list_instruction *new)
 {
 	int *mas;
 
-	mas = (int *) malloc(sizeof(int) * 3);
+	mas = (int *)malloc(sizeof(int) * 3);
 	new->next = ft_create_list_operation("ldi", freplace(mas, 6, 7, 1), 2, 0);
 	ft_add_atribut_list(new->next, 10, 1, 10);
 	new = new->next;
@@ -47,9 +56,9 @@ static void ft_list_operation_three(t_list_instruction	*new)
 	free(mas);
 }
 
-static void ft_list_operation_two(t_list_instruction	*new)
+static	void	ft_list_operation_two(t_list_instruction *new)
 {
-	int 				*mas;
+	int	*mas;
 
 	mas = (int *)malloc(sizeof(int) * 3);
 	new->next = ft_create_list_operation("and", freplace(mas, 6, 6, 1), 4, 1);
@@ -68,16 +77,16 @@ static void ft_list_operation_two(t_list_instruction	*new)
 	free(mas);
 }
 
-void ft_list_instruction_one(void)
+void			ft_list_instruction_one(void)
 {
 	t_list_instruction	*list;
 	t_list_instruction	*new;
-	int 				*mas;
+	int					*mas;
 
 	mas = (int *)malloc(sizeof(int) * 3);
 	list = ft_create_list_operation("live", freplace(mas, 2, 0, 0), 4, 0);
 	new = list;
-	list_instruction = new;
+	g_list_instruction = new;
 	ft_add_atribut_list(new, 1, 0, 1);
 	new->next = ft_create_list_operation("ld", freplace(mas, 5, 1, 0), 4, 1);
 	ft_add_atribut_list(new->next, 2, 1, 2);
