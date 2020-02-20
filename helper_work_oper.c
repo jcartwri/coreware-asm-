@@ -1,14 +1,22 @@
-//
-// Created by kitos on 10.02.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   helper_work_oper.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcartwri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/19 23:06:10 by jcartwri          #+#    #+#             */
+/*   Updated: 2020/02/19 23:06:12 by jcartwri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "asm.h"
 
-t_operation *ft_return_last_oper(void)
+t_operation	*ft_return_last_oper(void)
 {
 	t_operation *oper;
 
-	oper = operation;
+	oper = g_operation;
 	while (oper->next != NULL)
 	{
 		oper = oper->next;
@@ -16,7 +24,8 @@ t_operation *ft_return_last_oper(void)
 	return (oper);
 }
 
-int ft_col_arg_permitted(char **mas, t_operation *oper, t_list_instruction *list)
+int			ft_col_arg_permitted(char **mas, t_operation *oper,
+		t_list_instruction *list)
 {
 	int i;
 	int col;

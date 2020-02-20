@@ -1,10 +1,19 @@
-//
-// Created by kitos on 17.01.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_create_operation.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcartwri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/19 23:04:04 by jcartwri          #+#    #+#             */
+/*   Updated: 2020/02/19 23:04:06 by jcartwri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "asm.h"
 
-t_list_instruction	*ft_create_list_operation(char *name, int par[3], int size, int carry)
+t_list_instruction	*ft_create_list_operation(char *name, int par[3],
+		int size, int carry)
 {
 	t_list_instruction	*list;
 
@@ -21,7 +30,7 @@ t_list_instruction	*ft_create_list_operation(char *name, int par[3], int size, i
 	return (list);
 }
 
-static void ft_helper_oper(t_operation	*list)
+static	void		ft_helper_oper(t_operation *list)
 {
 	list->label_flag = 0;
 	list->value1 = -1;
@@ -29,11 +38,12 @@ static void ft_helper_oper(t_operation	*list)
 	list->value3 = -1;
 }
 
-static	t_operation	*ft_create_operation(int code_oper, int is_code_arg, int index, int flag)
+static	t_operation	*ft_create_operation(int code_oper, int is_code_arg,
+		int index, int flag)
 {
 	t_operation	*list;
 
-	list = (t_operation *)malloc(sizeof(t_operation));
+	list = (t_operation *)ft_memalloc(sizeof(t_operation));
 	ft_helper_oper(list);
 	if (flag == 1)
 	{
@@ -57,21 +67,22 @@ static	t_operation	*ft_create_operation(int code_oper, int is_code_arg, int inde
 	return (list);
 }
 
-t_operation	*ft_add_new_operation(int code_oper, int is_code_arg, int index, int flag)
+t_operation			*ft_add_new_operation(int code_oper, int is_code_arg,
+		int index, int flag)
 {
-	t_operation *new;
-	t_operation *copy;
+	t_operation	*new;
+	t_operation	*copy;
 
 	new = ft_create_operation(code_oper, is_code_arg, index, flag);
 	new->size_arg[0] = 0;
 	new->size_arg[1] = 0;
 	new->size_arg[2] = 0;
-	if (operation == NULL)
+	if (g_operation == NULL)
 	{
-		operation = new;
+		g_operation = new;
 		return (new);
 	}
-	copy = operation;
+	copy = g_operation;
 	while (copy->next != NULL)
 		copy = copy->next;
 	copy->next = new;

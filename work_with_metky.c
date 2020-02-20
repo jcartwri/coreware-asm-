@@ -1,10 +1,18 @@
-//
-// Created by kitos on 17.01.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   work_with_metky.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcartwri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/19 23:34:59 by jcartwri          #+#    #+#             */
+/*   Updated: 2020/02/19 23:35:01 by jcartwri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "asm.h"
 
-int ft_check_chars_label(char c)
+int					ft_check_chars_label(char c)
 {
 	int		i;
 	char	*str;
@@ -16,10 +24,11 @@ int ft_check_chars_label(char c)
 		if (str[i] == c)
 			return (1);
 	}
+	ft_put_error("Syntax error\n", 0);
 	return (-1);
 }
 
-static void ft_del_label(t_operation *oper)
+static	void		ft_del_label(t_operation *oper)
 {
 	int i;
 
@@ -39,15 +48,15 @@ static void ft_del_label(t_operation *oper)
 	free(oper);
 }
 
-void ft_strdel_t_oper(t_operation *oper)
+void				ft_strdel_t_oper(t_operation *oper)
 {
 	t_operation	*copy;
 
-	copy = operation;
+	copy = g_operation;
 	if (copy->next == NULL)
 	{
 		ft_del_label(oper);
-		operation = NULL;
+		g_operation = NULL;
 		return ;
 	}
 	while (copy != NULL && copy->next != oper)
@@ -55,23 +64,24 @@ void ft_strdel_t_oper(t_operation *oper)
 	if (copy == NULL)
 		return ;
 	copy->next = NULL;
+	ft_del_label(oper);
 }
 
-static t_operation *ft_get_oper(void)
+static	t_operation	*ft_get_oper(void)
 {
 	t_operation	*oper;
 
-	oper = operation;
+	oper = g_operation;
 	while (oper->next != NULL)
 		oper = oper->next;
 	return (oper);
 }
 
-int ft_check_on_metky(char *line, int index, int *flag)
+int					ft_check_on_metky(char *line, int index, int *flag)
 {
 	int			i;
 	t_operation	*list;
-	char 		**mas;
+	char		**mas;
 
 	i = index;
 	while (line[i] != '\0' && line[i] != LABEL_CHAR)
@@ -87,7 +97,8 @@ int ft_check_on_metky(char *line, int index, int *flag)
 	else
 		list = ft_get_oper();
 	list->label_flag = 1;
-	mas = ft_add_one_elem_mas(list->label_names, ft_strsub(line, index, i - index));
+	mas = ft_add_one_elem_mas(list->label_names,
+			ft_strsub(line, index, i - index));
 	free(list->label_names);
 	list->label_names = mas;
 	i = ft_skip_space(line, i + 1);

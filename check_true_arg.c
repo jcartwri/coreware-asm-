@@ -1,10 +1,18 @@
-//
-// Created by kitos on 20.01.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_true_arg.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcartwri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/19 22:55:16 by jcartwri          #+#    #+#             */
+/*   Updated: 2020/02/19 22:55:26 by jcartwri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "asm.h"
 
-char *ft_get_name_label_arg(char *str, int i)
+char			*ft_get_name_label_arg(char *str, int i)
 {
 	int j;
 
@@ -14,7 +22,8 @@ char *ft_get_name_label_arg(char *str, int i)
 	return (ft_strsub(str, i, j - i));
 }
 
-int ft_add_mas_label_arg(t_operation *oper, int i, char	**mas_arg, int j)
+int				ft_add_mas_label_arg(t_operation *oper, int i,
+		char **mas_arg, int j)
 {
 	char	*mas;
 
@@ -42,7 +51,7 @@ int ft_add_mas_label_arg(t_operation *oper, int i, char	**mas_arg, int j)
 	return (1);
 }
 
-static int	ft_exp(int l)
+static	int		ft_exp(int l)
 {
 	int i;
 	int num;
@@ -57,53 +66,54 @@ static int	ft_exp(int l)
 	return (num);
 }
 
-static void	ft_record_type_arg(t_operation *oper)
+static	void	ft_record_type_arg(t_operation *oper)
 {
 	int i;
 	int	sum;
 	int l;
 
 	i = 0;
-	oper->col_arg = num_arg;
-	while (num_arg < 3)
+	oper->col_arg = g_num_arg;
+	while (g_num_arg < 3)
 	{
-		num_arg++;
-		code_type_arg[(num_arg - 1) * 2] = '0';
-		code_type_arg[(num_arg - 1) * 2 + 1] = '0';
+		g_num_arg++;
+		g_code_type_arg[(g_num_arg - 1) * 2] = '0';
+		g_code_type_arg[(g_num_arg - 1) * 2 + 1] = '0';
 	}
 	sum = 0;
 	while (i < 8)
 	{
 		l = 7 - i;
-		if (code_type_arg[i] == '1')
+		if (g_code_type_arg[i] == '1')
 			sum += ft_exp(l);
 		i++;
 	}
 	oper->code_type_arg = sum;
 }
 
-int ft_true_arg(char **mas_arg, t_operation *oper, t_list_instruction *list)
+int				ft_true_arg(char **mas_arg, t_operation *oper,
+		t_list_instruction *list)
 {
 	int i;
 
 	i = -1;
-	num_arg = 0;
+	g_num_arg = 0;
 	while (mas_arg[++i])
 	{
 		if (ft_reg(list, oper, i, mas_arg) == -1)
 			return (-1);
 		else if (ft_dir(list, oper, i, mas_arg) == -1)
-			return(-1);
+			return (-1);
 		else if (ft_ind(list, oper, i, mas_arg) == -1)
-			return(-1);
+			return (-1);
 		else if (ft_reg_ind(list, oper, i, mas_arg) == -1)
-			return(-1);
+			return (-1);
 		else if (ft_dir_ind(list, oper, i, mas_arg) == -1)
-			return(-1);
+			return (-1);
 		else if (ft_reg_dir_ind(list, oper, i, mas_arg) == -1)
-			return(-1);
+			return (-1);
 		else if (ft_reg_dir(list, oper, i, mas_arg) == -1)
-			return(-1);
+			return (-1);
 	}
 	ft_record_type_arg(oper);
 	return (1);

@@ -1,16 +1,24 @@
-//
-// Created by kitos on 08.02.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   friend_find_instruction.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcartwri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/19 23:03:00 by jcartwri          #+#    #+#             */
+/*   Updated: 2020/02/19 23:03:02 by jcartwri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "asm.h"
 
 void	ft_counting_size_instruction(void)
 {
 	t_operation	*oper;
-	int 		i;
-	int 		sum;
+	int			i;
+	int			sum;
 
-	oper = operation;
+	oper = g_operation;
 	while (oper != NULL)
 	{
 		sum = 1;
@@ -18,12 +26,14 @@ void	ft_counting_size_instruction(void)
 		while (++i < 3)
 			sum += oper->size_arg[i];
 		sum += oper->is_code_arg;
+		if (sum == 1)
+			sum = 0;
 		oper->size_instruction += sum;
 		oper = oper->next;
 	}
 }
 
-char *ft_get_str_label(t_operation *oper, int i)
+char	*ft_get_str_label(t_operation *oper, int i)
 {
 	int a;
 

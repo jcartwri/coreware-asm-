@@ -1,10 +1,18 @@
-//
-// Created by kitos on 25.01.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   write_bytes_file.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcartwri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/19 23:41:31 by jcartwri          #+#    #+#             */
+/*   Updated: 2020/02/19 23:41:33 by jcartwri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "asm.h"
 
-static void	ft_record_null(int fd)
+void			ft_record_null(int fd)
 {
 	int i;
 
@@ -16,44 +24,45 @@ static void	ft_record_null(int fd)
 	}
 }
 
-static int	ft_record_champion_exec_code_size(int fd)
+static	int		ft_record_champion_exec_code_size(int fd)
 {
 	t_operation	*oper;
 	int			sum;
 
 	sum = 0;
-	oper = operation;
+	oper = g_operation;
 	while (oper != NULL)
 	{
 		sum += oper->size_instruction;
 		oper = oper->next;
 	}
-//	if (sum > CHAMP_MAX_SIZE)
-//		return (-1);
 	ft_record_magic_file(fd, 4, sum);
 	return (1);
 }
 
-static int	ft_record_champion_comment(int fd, char *str)
+static	int		ft_record_champion_comment(int fd, char *str)
 {
 	int l;
 	int len;
 
 	l = ft_strlen(str);
-//	if (l > COMMENT_LENGTH)
-//		return (-1);
+	if (l > COMMENT_LENGTH)
+	{
+		ft_putstr("Champion comment too long (Max length 2048)\n");
+		return (-1);
+	}
 	len = COMMENT_LENGTH - l;
 	write(fd, str, l);
-	while (len-- != 0)
+	while (len-- > 0)
 		write(fd, "\0", 1);
 	return (1);
 }
 
-static void	ft_record_champion_exec_code(int fd)
+void			ft_record_champion_exec_code(int fd)
 {
 	t_operation	*oper;
 
-	oper = operation;
+	oper = g_operation;
 	while (oper)
 	{
 		ft_record_magic_file(fd, 1, oper->code_operation);
@@ -76,7 +85,7 @@ static void	ft_record_champion_exec_code(int fd)
 	}
 }
 
-int		ft_write_bytes_file(char *name_file)
+int				ft_write_bytes_file(char *name_file)
 {
 	int		fd;
 	char	*str;
@@ -84,19 +93,23 @@ int		ft_write_bytes_file(char *name_file)
 	str = ft_get_name_file(name_file);
 	fd = open(str, O_CREAT | O_TRUNC | O_WRONLY, 0644);
 	ft_record_magic_file(fd, 4, COREWAR_EXEC_MAGIC);
-	if (ft_record_champion_name(fd, name) == -1)
+	if (ft_record_champion_name(fd, g_name) == -1)
+	{
+		ft_strdel(&str);
 		return (-1);
+	}
 	ft_record_null(fd);
 	if (ft_record_champion_exec_code_size(fd) == -1)
+	{
+		ft_strdel(&str);
 		return (-1);
-	if (ft_record_champion_comment(fd, comment) == -1)
+	}
+	if (ft_record_champion_comment(fd, g_comment) == -1)
+	{
+		ft_strdel(&str);
 		return (-1);
-	ft_record_null(fd);
-	ft_record_champion_exec_code(fd);
-    ft_putstr("Writing output program to ");
-    ft_putstr(str);
-    ft_putchar('\n');
-    ft_strdel(&str);
-	return(1);
+	}
+	ft_finish_present(fd, str);
+	ft_strdel(&str);
+	return (1);
 }
-
